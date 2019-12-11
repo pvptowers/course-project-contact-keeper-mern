@@ -7,7 +7,8 @@ import {
   UPDATE_CONTACT,
   FILTER_CONTACTS,
   CLEAR_FILTER,
-  CONTACT_ERROR
+  CONTACT_ERROR,
+  CLEAR_CONTACTS
 } from "../types";
 
 // This updates our state
@@ -41,6 +42,14 @@ export default (state, action) => {
           contact => contact.id !== action.payload
         ),
         loading: false
+      };
+    case CLEAR_CONTACTS:
+      return {
+        ...state,
+        contacts: null,
+        filtered: null,
+        error: null,
+        current: null
       };
     case SET_CURRENT:
       return {
