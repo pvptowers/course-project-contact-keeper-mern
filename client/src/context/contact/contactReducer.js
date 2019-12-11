@@ -23,7 +23,7 @@ export default (state, action) => {
     case ADD_CONTACT:
       return {
         ...state,
-        contacts: [...state.contacts, action.payload],
+        contacts: [action.payload, ...state.contacts],
         loading: false
       };
     case UPDATE_CONTACT:
@@ -39,7 +39,7 @@ export default (state, action) => {
         ...state,
         //This will return all contacts that are not the id. I.e. it will delete only the id in the payload and keep the other contacts
         contacts: state.contacts.filter(
-          contact => contact.id !== action.payload
+          contact => contact._id !== action.payload
         ),
         loading: false
       };

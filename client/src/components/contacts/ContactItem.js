@@ -6,11 +6,11 @@ const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
   const { deleteContact, setCurrent, clearCurrent } = contactContext;
   // Pull individual items out of contact prop that is pulled in above
-  const { id, name, email, phone, type } = contact;
+  const { _id, name, email, phone, type } = contact;
   //create ondelete
 
   const onDelete = () => {
-    deleteContact(id);
+    deleteContact(_id);
     clearCurrent();
   };
 
